@@ -54,4 +54,4 @@ Complete the test by:
 - You can inject/type-hint the interface via constructor, both are acceptable.
 
 ### Notes ###
-The only thing that you are NOT ALLOWED to use is ChatGPT. This test is just to gauge your knowledge and understanding. We value your passion, thank you.
+The only thing that you are NOT ALLOWED to use is ChatGPT. This test is just to gauge your knowledge and understanding.
