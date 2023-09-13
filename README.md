@@ -1,66 +1,57 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://blog.bateriku.com/wp-content/uploads/2021/02/BATERIKUNEWLOGO-1024x576.png" width="400" alt="Laravel Logo"></a></p>
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+## Prerequisites
 
-## About Laravel
+Assalamualaikum w.b.t,
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+This respository contains Laravel source code with a simple application for you to continue coding.
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+Please make sure your machine has the following tools installed:
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+- PHP 8 and above.
+- Git
 
-## Learning Laravel
+### Step 1
+Clone this repository into your local machine.
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+### Step 2
+Use your favourite IDE to edit the source code.
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+### Step 3
+#### Test requirements
+Imagine the system needs to send an SMS everytime a new user is successfully registered, we need build the system for SMS service.
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 2000 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+Assume we pick two SMS gateway providers, create two Laravel service class for these providers, provided with the dummy API key:
+1. Digi
+-- API Key: digi-eK7w3R5sP8oQ1x9L
+2. Maxis
+-- API Key: maxis-fG2hK9sW5qA1jR3oZ8pL6vN7
 
-## Laravel Sponsors
+### Your task to complete
+The source code comes with an interface, SmsInterface.php.
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](https://patreon.com/taylorotwell).
+Create two new concrete classes:
+1. DigiSmsService class
+2. MaxisSmsService class
 
-### Premium Partners
+Create a controller class, SmsController
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Cubet Techno Labs](https://cubettech.com)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[Many](https://www.many.co.uk)**
-- **[Webdock, Fast VPS Hosting](https://www.webdock.io/en)**
-- **[DevSquad](https://devsquad.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[OP.GG](https://op.gg)**
-- **[WebReinvent](https://webreinvent.com/?utm_source=laravel&utm_medium=github&utm_campaign=patreon-sponsors)**
-- **[Lendio](https://lendio.com)**
+Complete the test by:
+1. Both concrete class implements SmsInterface
+2. Then, implement the functions. For send() method, just simply return:
+    ```php
+    return "Sending message to {$phoneNumber}, message: {$message}, using API Key: {$this->apiKey()}";
+3. Within SmsController class:
+    1. Create a method that accept Request class to get parameters: phoneNumber and message
+    2. Pass the parameters to service methods
+    3. Return the response as json
 
-## Contributing
+4. Create a new API routes pointing to the SmsController method at #3.
+5. Test your API endpoint using Postman or curl or any API Client that you prefer.
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+### Tips ###
+- Use a sensible class/variable naming.
+- You can inject/type-hint the interface via constructor, both are acceptable.
 
-## Code of Conduct
-
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
-
-## Security Vulnerabilities
-
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
-
-## License
-
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+### Notes ###
+The only thing that you are NOT ALLOWED to use is ChatGPT. This test is just to gauge your knowledge and understanding. We value your passion, thank you.
