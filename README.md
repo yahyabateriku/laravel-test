@@ -49,9 +49,11 @@ Complete the test by:
 4. Create a new API routes pointing to the SmsController method at #3.
 5. Test your API endpoint using Postman or curl or any API Client that you prefer.
 
+Notes: Request flows are as follow: Client/Request -> Controller -> Service
+
 ### Tips ###
 - Use a sensible class/variable naming.
-- You can inject/type-hint the interface via constructor, both are acceptable.
+- You can inject/type-hint the interface via constructor or method, both are acceptable.
 
 ### Notes ###
 The only thing that you are NOT ALLOWED to use is ChatGPT. This test is just to gauge your knowledge and understanding.
